@@ -7,18 +7,20 @@ services:
     container_name: springboot-app
     environment:
       - SPRING_PROFILES_ACTIVE=prod
-
-
-  nginx:
-    build: ./nginx
-    container_name: nginx-proxy
-    depends_on:
-      - springboot
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./ssl:/etc/nginx/ssl
+      - "80:8080"
+
+
+  # nginx:
+  #  build: ./nginx
+  #  container_name: nginx-proxy
+  #  depends_on:
+  #    - springboot
+  #  ports:
+  #    - "80:80"
+  #    - "443:443"
+  #  volumes:
+  #    - ./ssl:/etc/nginx/ssl
 
 
   #  unnecessary for development on local environment
