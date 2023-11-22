@@ -1,4 +1,4 @@
-const LOCAL_IP_ADDRESS = "YOUR_IP"; // change it
+const LOCAL_IP_ADDRESS = window.location.host; // change it
 
 const getElement = id => document.getElementById(id);
 const [btnConnect, btnToggleVideo, btnToggleAudio, divRoomConfig, roomDiv, roomNameInput, localVideo, remoteVideo] = ["btnConnect",
@@ -11,11 +11,9 @@ let remoteDescriptionPromise, roomName, localStream, remoteStream,
 // but we don't need for local development
 const iceServers = {
   iceServers: [
-    {urls: `stun:${LOCAL_IP_ADDRESS}:3478`},
+    {urls: "stun.l.google.com:19302"},
     {
-      urls: `turn:${LOCAL_IP_ADDRESS}:3478`,
-      username: "username",
-      credential: "password"
+      urls: "stun.services.mozilla.org"
     }
   ]
 };
